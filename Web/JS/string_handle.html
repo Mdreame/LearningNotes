@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 350px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        div {
+            padding-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+        }
+
+        p {
+            background: #FFC125;
+            color: #5E2612;
+            padding: 10px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="output">
+        输入搜索，超过5项则会删除多余历史记录。
+        <input type="text"></input>
+        <button>搜索</button>
+        <ul></ul>
+    </div>
+
+    <br><br><br>
+    <div>笑话机
+        <label for="customname">输入自定义名字：</label>
+        <input id="customname" type="text" placeholder="李雷">
+    </div>
+    <div>
+        <label for="metric">公制</label><input id="metric" type="radio" name="measure" value="metric" checked>
+        <label for="american">美制</label><input id="american" type="radio" name="measure" value="american">
+    </div>
+    <div>
+        <button class="randomize">生成随机笑话</button>
+    </div>
+    <!-- 鸣谢：Willy Aguirre 提供的测试代码 -->
+    <p class="story"></p>
+
+    <script>
+        var list = document.querySelector('.output ul');
+        var searchInput = document.querySelector('.output input');
+        var searchBtn = document.querySelector('.output button');
+
+        list.innerHTML = '';
+
+        var myHistory = [];
+
+        searchBtn.onclick = function () {
+            // 如果搜索框不为空，我们则将搜索词添加到开头
+            if (searchInput.value !== '') {
+                // number 1
+                myHistory.unshift(searchInput.value);   //相当于push,shift的逆向操作
+                // 清空显示的搜索关键词列表，防止显示
+                // 每次输入搜索词都会重新生成显示的内容
+                list.innerHTML = '';
+
+                // 通过循环遍历，显示所有的搜索关键词
+                for (var i = 0; i < myHistory.length; i++) {
+                    var itemText = myHistory[i];
+                    var listItem = document.createElement('li');
+                    listItem.textContent = itemText;
+                    list.appendChild(listItem);
+                }
+
+                // 如果数组的长度大于 5，那么便移除旧的搜索关键词
+                if (myHistory.length >= 5) {
+                    // number 2
+                    myHistory.pop();
+                }
+
+                // 清空并聚焦到搜索框，准备下一次的搜索
+                searchInput.value = '';
+                searchInput.focus();
+            }
+        }
+
+    </script>
+
+    <script>
+        //1. 定义变量和函数
+
+        const customName = document.getElementById('customname');
+        const randomize = document.querySelector('.randomize');
+        const story = document.querySelector('.story');
+
+        function randomValueFromArray(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        //2. 纯文本字符串
+
+        let str = '今天气温 34 摄氏度，: inserta: 出去遛弯。当走到: insertb: 门前时，突然就: insertc: 。人们都惊呆了，李雷全程目睹但并没有慌，因为: inserta: 是一个 130 公斤的胖子，天气又辣么热。';
+
+        let names = ['怪兽威利','大老爹','圣诞老人'];
+
+        let places = ['肯德基','迪士尼乐园','白宫'];
+
+        let things = ['自燃了','在人行道化成了一坨泥','变成一条鼻涕虫爬走了'];
+        
+        let inserta,insertb,insertc;
+       // 3. 事件监听器和未完成的函数定义
+
+        randomize.addEventListener('click', result);
+        
+
+        function result() {
+            let storyStr = str;  //保持变量不能更改
+            console.log(1);
+            // let index_names = Math.floor(Math.random() * 3);
+            // let index_places = Math.floor(Math.random() * 3);
+            // let index_things = Math.floor(Math.random() * 3);
+
+            if (customName.value !== '') {
+                let name = customName.value;
+                storyStr = storyStr.replace("李雷", name);  //字符串操作不改变本身！！
+                
+               
+            }
+            storyStr = storyStr.replace(/: inserta:/g,randomValueFromArray(names));
+            storyStr = storyStr.replace(/: insertb:/g,randomValueFromArray(places));
+            storyStr = storyStr.replace(/: insertc:/g,randomValueFromArray(things));
+
+            if (document.getElementById("american").checked) {
+                let weight = Math.round(300);
+                let temperature = Math.round(94);
+                storyStr = storyStr.replace('34', temperature);
+                storyStr = storyStr.replace('130', weight);
+            }
+
+            story.textContent = storyStr;
+            story.style.visibility = 'visible';
+        }
+    </script>
+</body>
+
+</html>
