@@ -138,7 +138,7 @@ align-self: stretch | start | center | end;
 grid-area: 起始水平线 / 起始垂直线 / 末尾水平线 / 终止垂直线 ;
 ```
 
-如`.item5 {grid-area: 1/1/3/3;}`显示为：
+可以看成是，`grid-row`和`grid-column`的组合 ，如`.item5 {grid-area: 1/1/3/3;}`显示为：
 
 ![grid-area](images/grid-area.png)
 
@@ -192,7 +192,7 @@ grid-template-columns: repeat(3, minmax(90px, 1fr));
 
 **auto-fill**
 
-在最右侧的预览区中，`grid-template-columns`被设置为：
+如`grid-template-columns`被设置为：
 
 ```css
 repeat(auto-fill, minmax(60px, 1fr));
