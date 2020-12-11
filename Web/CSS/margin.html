@@ -8,15 +8,16 @@
     <style>
         :root {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+
         }
 
         * {
 
             box-sizing: inherit;
         }
-
+        * + * {
+            margin-top: 1.5em;
+        }
         body {
             background-color: #eee;
             font-family: Arial, Helvetica, sans-serif;
@@ -26,6 +27,7 @@
             color: #fff;
             background-color: #0072b0;
             border-radius: 0.5em;
+
         }
 
         main {
@@ -40,20 +42,38 @@
         }
 
         .main {
-            /* display: table-cell; */
             background-color: #fff;
             border-radius: 0.5em;
             width: 70%;
-
+            padding: 1em 1.5em;
         }
 
         .sidebar {
-            /* display: table-cell; */
             padding: 1.5em;
             margin-left: 1.5em;
+            margin-top: 0;
             background-color: #fff;
             width: 30%;
             border-radius: 0.5em;
+        }
+        .button-link{
+            display: block;
+            padding: 0.5em;
+            color: #fff;
+            background-color: #0090c9;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .button-link + .button-link {
+            margin-top: 1.5em;
+        }
+        .sponsor-link{
+            display: block;
+            /* margin-top: 1.5em; */
+            color: #0072b0;
+            font-weight: bold;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -70,8 +90,11 @@
                     记加入到新网页中。</p>
             </main>
             <aside class="sidebar">
-                <div class="widget"></div>
-                <div class="widget"></div>
+                <!-- <div class="widget"></div>
+                <div class="widget"></div> -->
+                <a href="#" class="button-link">Fllow us on twitter</a>
+                <a href="#" class="button-link">like us on facebook</a>
+                <a href="#" class="sponsor-link">become a sponsor</a>
             </aside>
         </div>
     </div>

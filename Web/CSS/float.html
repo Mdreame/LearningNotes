@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            box-sizing: border-box;
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            background-color: #eeeeee;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body *+* {
+            margin-top: 1.5em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 1em 1.5em;
+            color: #fff;
+            background-color: #0072b0;
+            border-radius: 0.5em;
+            margin-bottom: 1.5em;
+        }
+
+        .main {
+            padding: 0 1.5em 1.5em;
+            background-color: #fff;
+            border-radius: 0.5em;
+
+        }
+
+        .row {
+            margin-left: -0.75em;
+            margin-right: -0.75em;
+            display: flex;
+        }
+
+        .row::after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        [class*="column-"] {
+            float: left;
+            padding: 0 0.75em;
+            margin-top: 0;
+            display: flex;
+        }
+
+        .column-1 {
+            width: 8.3333%;
+        }
+
+        .column-2 {
+            width: 16.6667%;
+        }
+
+        .column-3 {
+            width: 25%;
+        }
+
+        .column-4 {
+            width: 33.3333%;
+        }
+
+        .column-5 {
+            width: 41.6667%;
+        }
+
+        .column-6 {
+            width: 50%;
+        }
+
+        .column-7 {
+            width: 58.3333%;
+        }
+
+        .column-8 {
+            width: 66.6667%;
+        }
+
+        .column-9 {
+            width: 75%;
+        }
+
+        .column-10 {
+            width: 83.3333%;
+        }
+
+        .column-11 {
+            width: 91.6667%;
+        }
+
+        .column-12 {
+            width: 100%;
+        }
+
+
+
+        .media {
+            /* float: left; */
+            /* width: calc(50% - 1.5em); */
+            /* margin: 0 1.5em 1.5em 0; */
+            margin-top: 0;
+            padding: 1.5em;
+            background-color: #eee;
+            border-radius: 0.5em;
+        }
+
+        /* .media:nth-child(odd) {
+            clear: left;
+        } */
+
+        .media-image {
+            max-width: 30%;
+            float: left;
+            margin-right: 1.5em;
+        }
+
+        .media-body {
+            margin-top: 0;
+            overflow: auto;
+        }
+
+        .media-body h4 {
+            margin-top: 0;
+        }
+
+        .clearfix::after,
+        .clearfix::before {
+            display: table;
+            content: " ";
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>南京马拉松</h1>
+        </header>
+
+        <main class="main clearfix">
+            <h2>马拉松</h2>
+
+            <div class="row">
+                <div class="column-6">
+                    <div class="media">
+                        <img src="images/grid-area.png" alt="" class="media-image">
+                        <div class="media-body">
+                            <h4>1</h4>
+                            <p>南京马拉松赛（简称南马）诞生于2015年，</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-6">
+                    <div class="media">
+                        <img src="images/grid-area.png" alt="" class="media-image">
+                        <div class="media-body">
+                            <h4>2</h4>
+                            <p>是中国田径协会、江苏省体育局、南京市人民政府共同主办，</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column-6">
+                    <div class="media">
+                        <img src="images/grid-area.png" alt="" class="media-image">
+                        <div class="media-body">
+                            <h4>3</h4>
+                            <p>由南京市体育局承办，江苏问源体育科技有限公司负责运营，</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column-6">
+                    <div class="media">
+                        <img src="images/grid-area.png" alt="" class="media-image">
+                        <div class="media-body">
+                            <h4>4</h4>
+                            <p>是中国田协“金牌赛事”和国际田联“铜标赛事”。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    </main>
+    </div>
+
+</body>
+
+</html>
