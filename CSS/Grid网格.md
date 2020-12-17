@@ -74,7 +74,7 @@ align-items: stretch | start | center | end;
 
 用在每个网格项自身。
 
-![网格](images/grid-column.png)
+![网格](grid-column.png)
 
 如上图模型所示：
 
@@ -140,7 +140,7 @@ grid-area: 起始水平线 / 起始垂直线 / 末尾水平线 / 终止垂直线
 
 可以看成是，`grid-row`和`grid-column`的组合 ，如`.item5 {grid-area: 1/1/3/3;}`显示为：
 
-![grid-area](images/grid-area.png)
+![grid-area](grid-area.png)
 
 前两个参数可以理解为起始坐标，后两个与前面参数的插值代表几行几列。
 
@@ -159,7 +159,7 @@ grid-area: 起始水平线 / 起始垂直线 / 末尾水平线 / 终止垂直线
 
 当宽度大于400px的时候，header和footer分别占据头部和底部完整宽度。
 
-![媒体查询结合grid](images/media-require.png)
+![媒体查询结合grid](media-require.png)
 
 
 ## 内置函数

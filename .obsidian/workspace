@@ -1,0 +1,110 @@
+{
+  "main": {
+    "id": "656db9c1d3bea44c",
+    "type": "split",
+    "children": [
+      {
+        "id": "ac7c82753376ca03",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "电脑知识/deepin/02.deepin个性化设置.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "581c6105bd1e3612",
+    "type": "split",
+    "children": [
+      {
+        "id": "0cf029e558291f02",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dd61fd724d0996fa",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "2e2016a9fcd4fe6e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 189,
+    "collapsed": true
+  },
+  "right": {
+    "id": "1022b94cca7d65e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "5efc249e8dc4f8cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b9f1ba7f92e0c565",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "电脑知识/deepin/02.deepin个性化设置.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4a74a828d55a1f13",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "电脑知识/deepin/02.deepin个性化设置.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "lastOpenFiles": [
+    "电脑知识/deepin/02.deepin个性化设置.md",
+    "C/02-基本概念.md",
+    "C/07-数组.md",
+    "Web/CSS/09.常用布局.md",
+    "电脑知识/deepin/03.常用操作.md",
+    "工具/ssh登陆.md",
+    "工具/Github下载加速.md",
+    "Web/CSS/经验之谈.md",
+    "fix-problem/终端git_push需重复登录验证.md",
+    "freecodecamp笔记/调查问卷表单.md"
+  ]
+}

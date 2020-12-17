@@ -18,7 +18,7 @@
 
    如我的位置：
 
-   ![image-20201205112621416](./images/image.png)
+   ![image-20201205112621416](image.png)
 
    
 
@@ -65,7 +65,6 @@ sudo ln -s ~/Desktop/Coding/SoftWare/nodejs/bin/node/usr/local/bin/
    added 689 packages from 972 contributors in 31.618s
    ```
 
-   
 2. 建立软链接
 
    ```shell
@@ -86,9 +85,32 @@ sudo ln -s ~/Desktop/Coding/SoftWare/nodejs/bin/node/usr/local/bin/
    registry=https://r.npm.taobao.org
    ```
 
-   
 
-## 3.Vue
+
+
+## 3.nvm
+
+首先去[官网下载](https://github.com/nvm-sh/nvm)。
+
+```shell
+tar -xzvf nvm-0.37.2.tar.gz
+```
+
+然后进入解压后的nvm文件夹：
+
+```shell
+cd nvm-0.37.2
+```
+
+运行`install.sh`：
+
+```shell
+./install.sh
+```
+
+重启终端即可使用。
+
+## 4.Vue
 
 1. 运行：
 

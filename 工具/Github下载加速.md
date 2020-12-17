@@ -5,7 +5,6 @@
 这里提供两个最常用的镜像地址：
 
 -  [https://github.com.cnpmjs.org/](https://github.com.cnpmjs.org/)
--  
 - [https://hub.fastgit.org/](https://hub.fastgit.org/)
 
 也就是说上面的镜像就是一个克隆版的Github，你可以访问上面的镜像网站，网站的内容跟Github是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。

@@ -22,6 +22,7 @@
 ## 写作
 
 - [Typora](https://typora.io/)
+- Obsidian
 - 幕布
 
 ## 影音娱乐
