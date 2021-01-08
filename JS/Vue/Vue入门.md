@@ -126,7 +126,7 @@ Vue 还通过组件实例暴露了一些内置 property，如 `$attrs` 和 `$emi
 
 模板中的内容为表达式，如`{{ exp }}`和`v-bind="exp"`。
 
-1. 双大括号{{}}
+1. 双大括号`{{ ... }}`
 
    ```html
    <span>Message: {{ msg }}</span>
