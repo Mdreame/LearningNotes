@@ -106,3 +106,4 @@ ls ~/.oh-my-zsh/themes
 参考：
 
 - [这篇 iTerm2 + Oh My Zsh 教程手把手让你成为这条街最靓的仔](https://segmentfault.com/a/1190000022813972)
+- [Powerlevel9k：zsh下最棒的Powerline主题](https://www.thisfaner.com/p/powerlevel9k-zsh/)
