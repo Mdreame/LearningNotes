@@ -17,7 +17,7 @@
 
 - [https://gh.api.99988866.xyz](https://gh.api.99988866.xyz/)
 
-- [GitHub 文件加速](https://g.ioiox.com/)
+- [GitHub 文件加速](https://ghproxy.com/)
 
 以上网站为演示站点，如无法打开可以查看开源项目：[gh-proxy-GitHub 文件加速]([开源分享：gh-proxy--基于cloudflare workers的GitHub文件加速](https://link.zhihu.com/?target=https%3A//hunsh.net/archives/23/))自行部署。
 
