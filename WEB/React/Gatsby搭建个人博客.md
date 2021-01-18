@@ -27,13 +27,11 @@ gatsby develop	#启动开发环境
 
 现在在浏览器中输入`http://localhost:8000/`就可以预览网站。
 
-## 模块介绍
-
-### 组件
+## 组件
 
 网页元素的一个部分，可以将任何部分看成一个组件，如按钮，导航栏，甚至整个页面。
 
-#### 页面
+### 页面
 
 ```js
 import React from "react"
@@ -47,7 +45,7 @@ export default () => (
 
 所有的页面文件都应该放在项目的`src/pages/`文件夹下，Gatsby默认将这里的组件渲染成页面。
 
-#### 子组件
+### 子组件
 
 子组件用于将页面某个部分划分成更小的部分，以便再次使用。子组件的文件夹通常在`src/components/`下。
 
@@ -97,7 +95,7 @@ export default () => (
 
    **props就是一个全局对象，其中保存了自定义的属性。**
 
-#### 链接
+### 链接
 
 链接组件是Gatsby提供的子模块，使用方式非常简单。在`src/pages/`目录下创建`contact.js`页面：
 
@@ -118,5 +116,247 @@ export default () = (
 > - 在引入模块的时候，如果模块只暴露了一个默认属性或方法时，对命名不做限制。但是有多个属性或方法时，需要在引入的子模块加上大括号，且命名必须与引入的属性或方法的名称保持一致。
 > - 渲染的内容包括组件和其他元素时，组件必须被父元素包含。只有组件则不需要。
 
+## 使用CSS
 
+### 全局CSS
+
+在`src/styles/`目录下新建`global.css`：
+
+```css
+html {
+    background-color: rgb(92, 224, 92);
+}
+```
+
+在网站根目录下新建`gatsby-browser.js`：
+
+```js
+import "./src/styles/global.css"
+```
+
+`gatsby-browser.js`是一个可以被Gatsby识别的特殊文件，可以用于加载css文件。
+
+### CSS模块
+
+> 一个 **CSS 模块**是一个 CSS 文件，其中包含所有样式和 CSS3 动画名称 默认情况下只适用于本范围内。
+
+新建两个文件：
+
+```js
+//container.js
+import React from "react"
+import containerStyles from "./container.module.css"
+
+export default ({ children }) => (
+  <div className={containerStyles.container}>{children}</div>
+)
+```
+
+```css
+//src/components/container.module.css
+.container {
+  margin: 3rem auto;
+  max-width: 600px;
+}
+```
+
+将`container.module.css`作为css模块引入`container`组件，然后在其他页面引用`container.js`模块。
+
+### CSS-In-JS
+
+以emotion为例：
+
+#### 单独使用
+
+```jsx
+import { css, cx } from '@emotion/css'
+
+const color = 'white'
+
+render(
+  <div
+    className={css`
+      padding: 32px;
+      background-color: hotpink;
+      font-size: 24px;
+      border-radius: 4px;
+      &:hover {
+        color: ${color};
+      }
+    `}
+  >
+    Hover to change color.
+  </div>
+)
+```
+
+只需要`emotion/css`模块，可以使用css模板字符串。
+
+#### 在React中使用
+
+```jsx
+import { css, jsx } from '@emotion/react'
+const color = 'white'
+render(
+  <div
+    css={css`
+      padding: 32px;
+      background-color: hotpink;
+      font-size: 24px;
+      border-radius: 4px;
+      &:hover {
+        color: ${color};
+      }
+    `}
+  >
+    Hover to change color.
+  </div>
+)
+```
+
+可以使用css变量。
+
+#### React结合Styled
+
+```jsx
+import styled from '@emotion/styled'
+
+const Button = styled.button`
+  padding: 32px;
+  background-color: hotpink;
+  font-size: 24px;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+`
+render(<Button>This my button component.</Button>)
+```
+
+直接定义成小组件的形式。
+
+## 查询数据
+
+`graphql`模块可以用来查询网站数据。
+
+### 页面查询
+
+```js
+import React from "react"
+import { graphql } from "gatsby"	//导入graphql模块
+import Layout from "../components/layout"
+
+export default ({ data }) => (	//将数据传入
+  <Layout>
+    <h1>About {data.site.siteMetadata.title}</h1>	//引用数据
+    <p>
+      We're the only site running on your computer dedicated to showing the best
+      photos and videos of pandas eating lots of food.
+    </p>
+  </Layout>
+)
+//此处导出查询的内容
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+```
+
+此处是将查到的数据对象直接返回给页面。
+
+### 静态查询
+
+`useStaticQuery`可以在组件内返回对象
+
+```js
+import React from "react"
+import { css } from "@emotion/core"
+import { useStaticQuery, Link, graphql } from "gatsby"
+
+import { rhythm } from "../utils/typography"
+export default ({ children }) => {
+  const data = useStaticQuery(	//接受返回对象
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+  return (
+        <h3
+          css={css`
+            margin-bottom: ${rhythm(2)};
+            display: inline-block;
+            font-style: normal;
+          `}
+        >
+          {data.site.siteMetadata.title}	//引用
+        </h3>
+  )
+}
+```
+
+## 文件查询
+
+Gatsby 网站中的数据可以来自任何地方：API、数据库、CMS、本地文件等等。`gatsby-source-system`插件可以查询文件。
+
+安装：`npm install --save gatsby-source-filesystem`
+
+然后添加到`gatsby-config.js`：
+
+```js
+plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+]
+```
+
+重启项目后，打开` http://localhost:8000/___graphql`即可查询。
+
+- 在查询框内输入`ctrl + Enter`可自动填写查询的所有文件。自动显示出id选项，可以增加其他选项再查询。
+- 使用自动完成的快捷键`shift + Space`。这将在 `File` 节点上显示可查询的字段。
+
+## 转换markdown文件数据
+
+安装插件：
+
+```shell
+npm install --save gatsby-transformer-remark
+```
+
+添加到`gatsby-config.js`中：
+
+```js
+module.exports = {
+  siteMetadata: {
+    title: `Pandas Eating Lots`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
+}
+```
 
