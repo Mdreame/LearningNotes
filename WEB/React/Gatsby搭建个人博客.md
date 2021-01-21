@@ -118,5 +118,26 @@ export default () = (
 > - 在引入模块的时候，如果模块只暴露了一个默认属性或方法时，对命名不做限制。但是有多个属性或方法时，需要在引入的子模块加上大括号，且命名必须与引入的属性或方法的名称保持一致。
 > - 渲染的内容包括组件和其他元素时，组件必须被父元素包含。只有组件则不需要。
 
+### CSS
 
+#### 全局CSS
 
+在`src/styles/`目录下新建`global.css`：
+
+```css
+html {
+    background-color: rgb(92, 224, 92);
+}
+```
+
+在网站根目录下新建`gatsby-browser.js`：
+
+```js
+import "./src/styles/global.css"
+```
+
+`gatsby-browser.js`是一个可以被Gatsby识别的特殊文件，可以用于加载css文件。
+
+#### 组件CSS
+
+> 一个 **CSS 模块**是一个 CSS 文件，其中包含所有样式和 CSS3 动画名称 默认情况下只适用于本范围内。
